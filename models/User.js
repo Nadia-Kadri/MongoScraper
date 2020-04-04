@@ -37,7 +37,8 @@ const User = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Note"
     }
-  ]
+  ],
+  created: { type: Date, required: true, default: Date.now() },
 });
 
 module.exports = mongoose.model("User", User);

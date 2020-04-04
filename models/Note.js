@@ -7,6 +7,11 @@ const Note = new Schema({
     unique: true,
     required: true
   },
+  created: { 
+    type: Date, 
+    required: true, 
+    default: Date.now() 
+  },
   article: {
     type: Schema.Types.ObjectId,
     ref: "Article"

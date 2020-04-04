@@ -34,4 +34,12 @@ router.get("/scrape", function(req, res) {
   res.send("Scrape Complete");
 });
 
+// View articles saved in Articles collection within MongoScraper db with Notes populated
+router.get("/view", function(req, res) {
+  db.Article.find({})
+    .sort({ $natural: -1 })
+    .then(data => res.json(data))
+    .catch(err => res.json(err));
+});
+
 module.exports = router;
