@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
-// const routes = require("./routes");
+const routes = require("./routes");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +21,7 @@ const options = {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/MongoScraper", options); 
 
 // ROUTES
-// app.use(routes);
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, function() {

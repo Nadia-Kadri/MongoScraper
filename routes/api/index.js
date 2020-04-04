@@ -3,7 +3,7 @@ const userRoutes = require("./user");
 const articleRoutes = require("./article");
 const noteRoutes = require("./note");
 
-// User routes
+// Routes
 router.use("/user", userRoutes);
 router.use("/article", articleRoutes);
 router.use("/note", noteRoutes);
