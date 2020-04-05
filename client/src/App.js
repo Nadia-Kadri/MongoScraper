@@ -1,11 +1,28 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "./index.css";
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home/index";
 
 class App extends Component {
+  state = {
+
+  };
+
   render() {
     return (
-      <h1>Mongo Scraper</h1>
+      <Router>
+        <div>
+          <Navbar />
+          <Switch>
+
+            <Route exact path="/">
+              <Home />
+            </Route>
+
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }

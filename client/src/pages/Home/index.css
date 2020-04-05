@@ -1,0 +1,22 @@
+.masthead {
+  height: 70vh;
+  min-height: 200px;
+  background-image: url("../../images/home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#masthead-margin{
+  margin: auto;
+}
+
+#masthead-text1{
+  font-size: 45px;
+  color: white;
+}
+
+#masthead-text2{
+  font-size: 30px;
+  color: white;
+}
