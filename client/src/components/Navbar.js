@@ -23,10 +23,10 @@ class Navbar extends React.Component {
                 </span>
               </Link>
 
-              {/* {this.props.authorized ?
-                (<Link to="/user/profile" className={window.location.pathname === "/user/profile" ? "nav-link active border-right" : "nav-link border-right" }>
+              {this.props.authorized ?
+                (<Link to="/profile" className={window.location.pathname === "/profile" ? "nav-link active border-right" : "nav-link border-right" }>
                   <span className="float-right text">
-                    User Profile <span className="sr-only">(current)</span>
+                    Profile <span className="sr-only">(current)</span>
                   </span>
                 </Link>) : 
                 ("")
@@ -43,7 +43,7 @@ class Navbar extends React.Component {
                     Login / Sign-Up <span className="sr-only">(current)</span>
                   </span>
                 </Link>)
-              } */}
+              }
             </div>
           </div>
         </nav>
