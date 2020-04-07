@@ -1,5 +1,5 @@
 .masthead {
-  height: 70vh;
+  height: 75vh;
   min-height: 200px;
   background-image: url("../../images/home.jpg");
   background-size: cover;
@@ -19,4 +19,13 @@
 #masthead-text2{
   font-size: 30px;
   color: white;
+}
+
+.click-here-scrape:hover {
+  cursor: pointer;
+  font-style: oblique;
+}
+
+a:hover {
+  text-decoration: none;
 }

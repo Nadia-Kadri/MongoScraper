@@ -65,7 +65,7 @@ class App extends Component {
           <Switch>
 
             <Route exact path="/">
-              <Home />
+              <Home user={this.state.user}/>
             </Route>
 
             <Route exact path="/login">
