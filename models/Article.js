@@ -16,6 +16,11 @@ const Article = new Schema({
     unique: true,
     required: true
   },
+  created: { 
+    type: Date, 
+    required: true, 
+    default: Date.now() 
+  },
   notes: [
     {
       type: Schema.Types.ObjectId,

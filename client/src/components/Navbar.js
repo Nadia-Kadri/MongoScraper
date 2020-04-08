@@ -6,7 +6,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-md navbar-light bg-light cust-nav">
           <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
             <h1>Mongo Scraper</h1>
           </Link>
@@ -16,16 +16,16 @@ class Navbar extends React.Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
+            <div className="navbar-nav ml-auto">
               <Link to="/" className={window.location.pathname === "/" ? "nav-link active border-right" : "nav-link border-right"}>
-                <span className="float-right text">
+                <span className="text">
                   Home <span className="sr-only">(current)</span>
                 </span>
               </Link>
 
               {this.props.authorized ?
                 (<Link to="/profile" className={window.location.pathname === "/profile" ? "nav-link active border-right" : "nav-link border-right" }>
-                  <span className="float-right text">
+                  <span className="text">
                     Profile <span className="sr-only">(current)</span>
                   </span>
                 </Link>) : 
@@ -34,12 +34,12 @@ class Navbar extends React.Component {
 
               {this.props.authorized ?
                 (<Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
-                  <span className="float-right text" onClick={this.props.logout}>
+                  <span className="text" onClick={this.props.logout}>
                     Logout <span className="sr-only">(current)</span>
                   </span>
                 </Link>) : 
                 (<Link to="/login" className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}>
-                  <span className="float-right text">
+                  <span className="text">
                     Login / Sign-Up <span className="sr-only">(current)</span>
                   </span>
                 </Link>)
