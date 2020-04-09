@@ -20,7 +20,11 @@ class Home extends Component {
       .then(res => {
         this.setState({
           articles: res.data
-        })
+        }, 
+        () => {
+            console.log(this.state.articles)
+        }
+        )
         
       })
       .catch(err => {
@@ -75,7 +79,7 @@ class Home extends Component {
               <div className="container h-100">
                 <div className="row h-100 align-items-center">
                   <div className="col-11 text-center" id="scrape-info-margin">
-                    <h5>Articles last scraped from the WSJ at {moment(this.state.articles[0].created, "YYYY-MM-DDTHH:mm:ss.SSSZ").utc().format("h:mma on MMM Do YYYY")}</h5>
+                    <h5><i className="fa fa-angle-double-down" aria-hidden="true"></i>  Articles last scraped from the WSJ at {moment.utc(this.state.articles[0].created).local().format("h:mma on MMM Do YYYY")}  <i className="fa fa-angle-double-down" aria-hidden="true"></i></h5>
                     <h5><span className="click-here-scrape text-primary" onClick={this.onClickScrape}>Click here </span>to scrape new articles!</h5>
                   </div>
                 </div>

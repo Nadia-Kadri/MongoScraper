@@ -1,33 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./index.css";
+import Article from "./Article";
 // import moment from "moment"
 
-class Articles extends Component {
+const Articles = (props) => (
 
-  state = {
-    
-  };
+  <div className="container-fluid">
+    {props.articles.map(article => (
+      <Article link={article.link} title={article.title} summary={article.summary} key={article._id}/>
+    ))}
+  </div>
 
-  componentDidMount() {
-  
-  };
-
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.articles.map(article => (
-          <div className="card mt-2">
-            <div className="card-header">
-              <h5><a target="_blank" rel="noopener noreferrer" href={article.link}>{article.title}</a></h5>
-            </div>
-            <div className="card-body">
-              <div className="article-summary">{article.summary}</div>
-            </div>
-          </div>
-        ))}
-      </React.Fragment>
-    );
-  }
-}
+)
 
 export default Articles;
