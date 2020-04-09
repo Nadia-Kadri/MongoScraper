@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import articleAPI from "../../utils/articleAPI";
 // import userAPI from "../../utils/userAPI";
 import Articles from "./Articles";
+import ScrapeSuccessModal from "./Modals/ScrapeSuccess";
 import moment from "moment";
 import "./index.css";
 
@@ -20,12 +21,7 @@ class Home extends Component {
       .then(res => {
         this.setState({
           articles: res.data
-        }, 
-        () => {
-            console.log(this.state.articles)
-        }
-        )
-        
+        })
       })
       .catch(err => {
         console.log(err)
@@ -34,17 +30,10 @@ class Home extends Component {
 
   scrapeArticles = () => {
     articleAPI.scrape()
-      .then(res => {
-        console.log(res)
-      })
+      .then(res => console.log(res))
       .catch(err => {
         console.log(err)
       });
-  }
-
-  onClickScrape = () => {
-    this.scrapeArticles()
-    this.getArticles()
   }
 
   render() {
@@ -67,7 +56,12 @@ class Home extends Component {
                 <div className="row h-100 align-items-center">
                   <div className="col-10 text-center" id="no-articles-margin">
                     <h5>Uh Oh. Looks like we don't have any new articles. 
-                      <span className="click-here-scrape text-primary" onClick={this.onClickScrape}> Click here </span>
+                      <span 
+                        className="click-here-scrape text-primary" 
+                        onClick={this.scrapeArticles}
+                        data-toggle="modal" 
+                        data-target="#scrape-success"
+                      > Click here </span>
                       to scrape!
                     </h5>
                   </div>
@@ -80,7 +74,14 @@ class Home extends Component {
                 <div className="row h-100 align-items-center">
                   <div className="col-11 text-center" id="scrape-info-margin">
                     <h5><i className="fa fa-angle-double-down" aria-hidden="true"></i>  Articles last scraped from the WSJ at {moment.utc(this.state.articles[0].created).local().format("h:mma on MMM Do YYYY")}  <i className="fa fa-angle-double-down" aria-hidden="true"></i></h5>
-                    <h5><span className="click-here-scrape text-primary" onClick={this.onClickScrape}>Click here </span>to scrape new articles!</h5>
+                    <h5>
+                      <span 
+                        className="click-here-scrape text-primary" 
+                        onClick={this.scrapeArticles}
+                        data-toggle="modal" 
+                        data-target="#scrape-success"
+                      >Click here </span>
+                      to scrape new articles!</h5>
                   </div>
                 </div>
               </div>  
@@ -88,7 +89,8 @@ class Home extends Component {
             <Articles articles={this.state.articles} user={this.props.user}/>
           </React.Fragment>)
         }
-        
+      
+        <ScrapeSuccessModal getArticles={this.getArticles}/>      
       </React.Fragment>
     )
   }
