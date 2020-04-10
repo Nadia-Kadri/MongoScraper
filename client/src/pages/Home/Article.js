@@ -1,6 +1,5 @@
 import React from "react";
 import SaveButton from "./SaveButton";
-import NoteButton from "./NoteButton";
 import "./index.css";
 
 const Article = (props) => (
@@ -12,12 +11,11 @@ const Article = (props) => (
           <span className="h4"><a target="_blank" rel="noopener noreferrer" href={props.link}>{props.title}</a></span>
         </div>
         <div className="col-4">
-          <NoteButton />
-          <SaveButton />
+          <SaveButton id={props.id} saveArticle={props.saveArticle}/>
         </div>
       </div>
     </div>
-    
+
     <div className="card-body">
       <div className="article-summary">{props.summary}</div>
     </div>

@@ -68,4 +68,15 @@ router.get("/authorized", isAuthenticated, function(req, res) {
   res.json(req.user);
 });
 
+// Put route for users to save an article
+router.put("/save/article/:articleId", isAuthenticated, function(req, res) {
+  db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { savedArticles: req.params.articleId } }, { new: true })
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(err => console.log(err.message));
+});
+
+
 module.exports = router;

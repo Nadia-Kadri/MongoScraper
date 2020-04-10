@@ -15,5 +15,8 @@ export default {
   },
   isAuthorized: function () {
     return axios.get("/api/user/authorized");
+  },
+  saveArticle: function (articleId) {
+    return axios.put("/api/user/save/article/" + articleId)
   }
 };

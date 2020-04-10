@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import articleAPI from "../../utils/articleAPI";
-// import userAPI from "../../utils/userAPI";
+import userAPI from "../../utils/userAPI";
 import Articles from "./Articles";
 import ScrapeSuccessModal from "./Modals/ScrapeSuccess";
+import ArticleSavedModal from "./Modals/ArticleSaved";
 import moment from "moment";
 import "./index.css";
 
@@ -34,6 +35,12 @@ class Home extends Component {
       .catch(err => {
         console.log(err)
       });
+  }
+
+  saveArticle = (articleId) => {
+    userAPI.saveArticle(articleId)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -81,16 +88,18 @@ class Home extends Component {
                         data-toggle="modal" 
                         data-target="#scrape-success"
                       >Click here </span>
-                      to scrape new articles!</h5>
+                      to scrape new articles!
+                    </h5>
                   </div>
                 </div>
               </div>  
             </div>
-            <Articles articles={this.state.articles} user={this.props.user}/>
+            <Articles articles={this.state.articles} user={this.props.user} saveArticle={this.saveArticle}/>
           </React.Fragment>)
         }
       
-        <ScrapeSuccessModal getArticles={this.getArticles}/>      
+        <ScrapeSuccessModal getArticles={this.getArticles}/>
+        <ArticleSavedModal getArticles={this.getArticles}/>
       </React.Fragment>
     )
   }
