@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import API from "../../utils/userAPI";
 
 class Login extends Component {
@@ -7,10 +7,6 @@ class Login extends Component {
     username: "",
     password: "",
     error: ""
-  };
-
-  componentDidMount() {
-
   };
 
   login = event => {
@@ -33,7 +29,6 @@ class Login extends Component {
         console.log(err);
         this.setState({ error: "A server error has occured." });
       });
-
     this.setState({ password: "" });
   };
 

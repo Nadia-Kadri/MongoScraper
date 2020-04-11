@@ -6,11 +6,14 @@ class Register extends Component {
   state = {
     firstName: "",
     lastName: "",
-    username: "",
+    birthday: "",
     email: "",
+    username: "",
     password: "",
     confirm: "",
-    birthday: "",
+    validFN: false,
+    validLN: false,
+    validBD: false,
     validUN: false,
     validEM: false,
     validPW: false,
@@ -24,6 +27,18 @@ class Register extends Component {
 
   validateField = (name, value) => {
     switch (name) {
+      case "firstName":
+        this.setState({ validFN: value.length >= 1 });
+        break;
+      case "lastName":
+        this.setState({ validLN: value.length >= 1 });
+        break;
+      case "birthday":
+        this.setState({ validBD: value.length >= 1 });
+        break;
+      case "email":
+        this.setState({ validEM: this.state.reg.test(value) });
+        break;
       case "username":
         if (value.length > 7) {
           API.availableUN(value.toLowerCase())
@@ -38,9 +53,6 @@ class Register extends Component {
         } else {
           this.setState({ validUN: false });
         }
-        break;
-      case "email":
-        this.setState({ validEM: this.state.reg.test(value) });
         break;
       case "password":
         this.setState({
@@ -62,10 +74,10 @@ class Register extends Component {
     API.register({
       firstName: this.state.firstName,
       lastName: this.state.lastName,
-      username: this.state.username.toLowerCase(),
+      birthday: this.state.birthday,
       email: this.state.email,
-      password: this.state.password,
-      birthday: this.state.birthday
+      username: this.state.username.toLowerCase(),
+      password: this.state.password
     })
       .then(res => {
         if (res.data.message) {
@@ -114,6 +126,7 @@ class Register extends Component {
                       value={this.state.firstName}
                       onChange={this.handleInputChange}
                       />
+                    {this.state.validFN ? "" : <small>Please enter first name</small>}
                   </div>
                 </div>
                 <div className="col-sm-6">
@@ -127,6 +140,7 @@ class Register extends Component {
                       value={this.state.lastName}
                       onChange={this.handleInputChange}
                     />
+                    {this.state.validLN ? "" : <small>Please enter last name</small>}
                   </div>
                 </div>
               </div>
@@ -215,7 +229,7 @@ class Register extends Component {
                     <button 
                       className="btn btn-primary"
                       disabled={
-                        this.state.validUN && this.state.validEM && this.state.validCF
+                        this.state.validFN && this.state.validLN && this.state.validBD && this.state.validUN && this.state.validEM && this.state.validCF
                           ? ""
                           : "disabled"
                       }
