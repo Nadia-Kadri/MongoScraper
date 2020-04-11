@@ -121,7 +121,7 @@ class Home extends Component {
         }
       
         <ScrapeSuccessModal getArticles={this.getArticles}/>
-        <ArticleSavedModal getArticles={this.getArticles}/>
+        <ArticleSavedModal getArticles={this.getArticles} authorized={this.props.authorized}/>
       </React.Fragment>
     )
   }
