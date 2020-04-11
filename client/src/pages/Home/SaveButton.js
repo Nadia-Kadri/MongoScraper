@@ -1,8 +1,6 @@
 import React from "react";
-import "./index.css";
 
 const SaveButton = (props) => (
-
   <span 
     className="btn btn-success float-right" 
     onClick={() => props.saveArticle(props.id)}
@@ -11,7 +9,6 @@ const SaveButton = (props) => (
   >
     Save Article
   </span>
-
 )
 
 export default SaveButton;

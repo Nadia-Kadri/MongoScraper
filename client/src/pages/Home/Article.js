@@ -1,9 +1,7 @@
 import React from "react";
 import SaveButton from "./SaveButton";
-import "./index.css";
 
 const Article = (props) => (
-
   <div className="card mt-2">
     <div className="card-header">
       <div className="row">
@@ -20,7 +18,6 @@ const Article = (props) => (
       <div className="article-summary">{props.summary}</div>
     </div>
   </div>
-
 )
 
 export default Article;
