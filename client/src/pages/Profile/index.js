@@ -1,21 +1,34 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import userAPI from "../../utils/userAPI";
+import SavedArticles from "./SavedArticles";
 import moment from "moment";
-// import "./index.css";
+import "./index.css";
 
 class Profile extends Component {
   state = {
-    
+    savedArticles: []
   };
 
   componentDidMount() {
+    this.getSavedArticles()
+  }
 
+  getSavedArticles () {
+    userAPI.viewSavedArticles()
+      .then(res => {
+        console.log(res.data[0].savedArticles)
+        this.setState({ savedArticles: res.data[0].savedArticles })
+      })
+      .catch(err => {
+        console.log(err)
+      });
   }
 
   render() {
     return (
       <React.Fragment>
-        <div className="custContainer">
+        <div className="container-fluid">
           <div className="row m-1">
             <div className="col-sm-12">
               <h1>Dashboard</h1>
@@ -23,19 +36,23 @@ class Profile extends Component {
           </div>
 
           <div className="row">
-            <div className="col-sm-12">
-              <div className="card bg-light mb-3">
+            <div className="col-md-6">
+              <div className="card bg-light mb-3 card-height">
                 <div className="card-body">
                   <h2 className="card-title">Welcome {this.props.user.firstName}!</h2>
-                  <p className="card-text">This is your Profile Page that only you have access to. On this page you can view your personal information, see your saved articles, and update/delete any notes. Scroll down to get started!</p>
+                  <div className="card-text">
+                    This is your Profile Page that only you have access to. On this page you can:
+                    <ul>
+                      <li>View your personal information</li>
+                      <li>See your saved articles</li>
+                      <li>Add/update/delete article notes</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="row">
-          <div className="col-sm-6">
-              <div className="card bg-light mb-3">
+            <div className="col-md-6">
+              <div className="card bg-light mb-3 card-height">
                 <div className="card-body">
                   <h4 className="card-title">Personal Information</h4>
                   <table>
@@ -57,22 +74,28 @@ class Profile extends Component {
                         <td>{moment(this.props.user.birthday, "YYYY-MM-DDTHH:mm:ss.SSSZ").utc().format("MM/DD/YY")}</td>
                       </tr>
                       <tr>
-                        <th scope="row">Date Joined:</th>
-                        <td>{moment(this.props.user.created, "YYYY-MM-DDTHH:mm:ss.SSSZ").utc().format("MM/DD/YY")}</td>
+                        <th scope="row">Joined:</th>
+                        <td>{moment.utc(this.props.user.created).local().format("MM/DD/YY")}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-            <div className="col-sm-6">
+          </div>
+
+          <div className="row">
+          
+            <div className="col-sm-12">
               <div className="card bg-light mb-3">
                 <div className="card-body">
                   <h4 className="card-title">Your Saved Articles</h4>
                   <div className="card-text">
-                    <p>These are all the articles that you've saved. Want to save more? Click <Link to="/">here.</Link></p>
+                    <p>These are all the articles that you've saved. Want to save more? <Link to="/">Click here.</Link></p>
                   </div>
-                  <table className="table table-hover table-sm">
+                  <SavedArticles savedArticles={this.state.savedArticles}/>
+
+                  {/* <table className="table table-hover table-sm">
                     <thead>
                       <tr>
                         <th scope="col">Title</th>
@@ -82,7 +105,7 @@ class Profile extends Component {
                     </thead>
                     <tbody>
                     </tbody>
-                  </table>
+                  </table> */}
                 </div>
               </div>
             </div>

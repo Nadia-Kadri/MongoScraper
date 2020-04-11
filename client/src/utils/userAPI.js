@@ -18,5 +18,8 @@ export default {
   },
   saveArticle: function (articleId) {
     return axios.put("/api/user/save/article/" + articleId)
-  }
+  },
+  viewSavedArticles: function () {
+    return axios.get("/api/user/view/articles");
+  },
 };

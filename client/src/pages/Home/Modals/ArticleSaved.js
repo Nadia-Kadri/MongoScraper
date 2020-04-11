@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ArticleSaved = (props) => (
  
@@ -17,7 +18,7 @@ const ArticleSaved = (props) => (
                 To view all your saved articles, click on the User Profile button below. To browse more articles, click on the Browse Articles button. 
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">User Profile</button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.getArticles}><Link to="/profile">User Profile</Link></button>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.getArticles}>Browse Articles</button>
               </div>
             </div>
