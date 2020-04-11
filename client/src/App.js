@@ -22,7 +22,7 @@ class App extends Component {
   isAuthorized = () => {
     API.isAuthorized()
       .then(res => {
-        console.log(res)
+        // console.log(res)
         res.data.message ? 
           this.setState({
             authorized: false,
@@ -65,7 +65,7 @@ class App extends Component {
           <Switch>
 
             <Route exact path="/">
-              <Home user={this.state.user}/>
+              <Home isAuthorized={this.isAuthorized} user={this.state.user} userId={this.state.userId} authorized={this.state.authorized} />
             </Route>
 
             <Route exact path="/login">

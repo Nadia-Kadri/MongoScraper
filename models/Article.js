@@ -27,6 +27,13 @@ const Article = new Schema({
       ref: "Note"
     }
   ]
+  // users who have saved article
+  // users: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "User"
+  //   }
+  // ]
 });
 
 module.exports = mongoose.model("Article", Article);

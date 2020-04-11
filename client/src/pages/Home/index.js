@@ -10,19 +10,41 @@ import "./index.css";
 class Home extends Component {
 
   state = {
-    articles: []
+    articles: [],
   };
 
   componentDidMount() {
+    this.props.isAuthorized();
     this.getArticles()
   }
 
   getArticles = () => {
+    this.props.isAuthorized();
     articleAPI.view()
       .then(res => {
-        this.setState({
-          articles: res.data
-        })
+        let articlesArr = []
+        for(let i = 0; i < res.data.length; i++) {
+          let isSaved
+          if (this.props.authorized) {
+            let found = this.props.user.savedArticles.some(article => article === res.data[i]._id)
+            found ? isSaved = true : isSaved = false
+          } else {
+            isSaved = false
+          }
+
+          articlesArr.push({
+            id: res.data[i]._id,
+            created: res.data[i].created,
+            notes: res.data[i].notes,
+            title: res.data[i].title,
+            summary: res.data[i].summary,
+            link: res.data[i].link,
+            users: res.data[i].users, 
+            isSaved: isSaved
+          })
+        }
+        const articlesArrFilter = articlesArr.filter(article => article.isSaved === false)
+        this.setState({ articles: articlesArrFilter })
       })
       .catch(err => {
         console.log(err)

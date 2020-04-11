@@ -76,6 +76,12 @@ router.put("/save/article/:articleId", isAuthenticated, function(req, res) {
       res.json(result)
     })
     .catch(err => console.log(err.message));
+  // db.Article.findOneAndUpdate({ _id: req.params.articleId }, { $push: { users: req.user._id } }, { new: true })
+  //   .then(result => {
+  //     console.log(result)
+  //     res.json(result)
+  //   })
+  //   .catch(err => console.log(err.message));
 });
 
 

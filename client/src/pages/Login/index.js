@@ -75,7 +75,7 @@ class Login extends Component {
                     onChange={this.handleInputChange}
                   />
                 </div>
-                {this.state.error ? <small>{this.state.error}</small> : ""}
+                {this.state.error ? <p>{this.state.error}</p> : ""}
                 <button
                   className="btn btn-primary"
                   disabled={
