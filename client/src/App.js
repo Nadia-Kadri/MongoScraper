@@ -11,7 +11,6 @@ import API from "./utils/userAPI";
 class App extends Component {
   state = {
     authorized: false,
-    userId: false,
     user: {}
   };
 
@@ -24,12 +23,10 @@ class App extends Component {
       .then(res => {
         res.data.message ? 
           this.setState({
-            authorized: false,
-            userId: false,
+            authorized: false
           })
         : this.setState({
           authorized: true,
-          userId: res.data._id,
           user: res.data
         })
       })
@@ -59,7 +56,7 @@ class App extends Component {
           <Switch>
 
             <Route exact path="/">
-              <Home isAuthorized={this.isAuthorized} user={this.state.user} userId={this.state.userId} authorized={this.state.authorized} />
+              <Home isAuthorized={this.isAuthorized} user={this.state.user} authorized={this.state.authorized} />
             </Route>
 
             <Route exact path="/login">
