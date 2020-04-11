@@ -6,14 +6,11 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    error: "",
-    display: false,
-    redirect: "/"
+    error: ""
   };
 
   componentDidMount() {
-    //recording what page triggered the Login component so that login can redirect to that page after sign-in
-    this.setState({ redirect: this.props.redirect });
+
   };
 
   login = event => {
@@ -50,45 +47,40 @@ class Login extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.authorized ?
-          //if login component was triggered by its own path, redirect to home page
-          (<Redirect to={this.state.redirect === "/login" ? "/" : this.state.redirect} />) : (
-            <div className="container" style={contStyle}>
-              <form>
-                <div className="form-group">
-                  <label>Username</label>
-                  <input 
-                    type="text"
-                    className="form-control"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Password</label>
-                  <input 
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
-                {this.state.error ? <p>{this.state.error}</p> : ""}
-                <button
-                  className="btn btn-primary"
-                  disabled={
-                    this.state.username && this.state.password ? "" : "disabled"
-                  }
-                  onClick={this.login}
-                >Login</button>
-                <br></br>
-                <Link to="/register">Not registered? Click here.</Link>
-              </form>
+        <div className="container" style={contStyle}>
+          <form>
+            <div className="form-group">
+              <label>Username</label>
+              <input 
+                type="text"
+                className="form-control"
+                name="username"
+                value={this.state.username}
+                onChange={this.handleInputChange}
+              />
             </div>
-
-          )}
+            <div className="form-group">
+              <label>Password</label>
+              <input 
+                type="password"
+                className="form-control"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+            </div>
+            {this.state.error ? <p>{this.state.error}</p> : ""}
+            <button
+              className="btn btn-primary"
+              disabled={
+                this.state.username && this.state.password ? "" : "disabled"
+              }
+              onClick={this.login}
+            >Login</button>
+            <br></br>
+            <Link to="/register">Not registered? Click here.</Link>
+          </form>
+        </div>
       </React.Fragment>
     );
   }

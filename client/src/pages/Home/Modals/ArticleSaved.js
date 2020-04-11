@@ -15,10 +15,9 @@ const ArticleSaved = (props) => (
                 </button>
               </div>
               <div className="modal-body">
-                To view all your saved articles, click on the User Profile button below. To browse more articles, click on the Browse Articles button. 
+                Go to your Profile Page to view your saved articles and add notes! To browse more articles, click on the Browse Articles button below. 
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.getArticles}><Link to="/profile">User Profile</Link></button>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.getArticles}>Browse Articles</button>
               </div>
             </div>

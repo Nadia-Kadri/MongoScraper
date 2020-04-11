@@ -22,7 +22,6 @@ class App extends Component {
   isAuthorized = () => {
     API.isAuthorized()
       .then(res => {
-        // console.log(res)
         res.data.message ? 
           this.setState({
             authorized: false,
@@ -33,7 +32,6 @@ class App extends Component {
           userId: res.data._id,
           user: res.data
         })
-        // console.log(this.state.user)
       })
       .catch(err => {
         console.log(err);
@@ -53,10 +51,6 @@ class App extends Component {
       });
   };
 
-  setRedirect = (pathname) => {
-    this.setState({ redirect: pathname });
-  };
-
   render() {
     return (
       <Router>
@@ -69,7 +63,10 @@ class App extends Component {
             </Route>
 
             <Route exact path="/login">
-              <Login isAuthorized={this.isAuthorized} authorized={this.state.authorized} redirect={window.location.pathname} />
+              {this.state.authorized ?
+                (<Redirect to="/" />) :
+                (<Login isAuthorized={this.isAuthorized} authorized={this.state.authorized} />)
+              }
             </Route>
 
             <Route exact path="/register">
