@@ -84,5 +84,19 @@ router.put("/save/article/:articleId", isAuthenticated, function(req, res) {
   //   .catch(err => console.log(err.message));
 });
 
+// Get route for Users to view their saved articles
+router.get("/view/articles", isAuthenticated, function(req, res) {
+  console.log("saved articles");
+  
+  db.User.find({ _id: req.user._id })
+    .populate("savedArticles")
+    .populate("notes")
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(err => console.log(err.message));
+});
+
 
 module.exports = router;
