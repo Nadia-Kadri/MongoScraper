@@ -70,7 +70,7 @@ router.get("/authorized", isAuthenticated, function(req, res) {
 
 // Put route for users to save an article
 router.put("/save/article/:articleId", isAuthenticated, function(req, res) {
-  db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { savedArticles: req.params.articleId } }, { new: true })
+  db.User.findOneAndUpdate({ _id: req.user._id }, { $addToSet: { savedArticles: req.params.articleId } }, { new: true })
     .then(result => {
       console.log(result)
       res.json(result)
