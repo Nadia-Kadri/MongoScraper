@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import logo from "../images/logo.jpeg"
 import "./index.css";
 
 const Navbar = (props) => (
   <React.Fragment>
     <nav className="navbar navbar-expand-md navbar-light bg-light cust-nav">
+
+      {/* <Link to="/"  className="navbar-brand">
+        <img src={logo} alt="Mongo Scraper" width="10%" height="10%" />
+      </Link> */}
+
       <Link to="/" className="nav-link">
         <h1>Mongo Scraper</h1>
       </Link>

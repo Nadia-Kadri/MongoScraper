@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userAPI from "../../utils/userAPI";
 import SavedArticles from "./SavedArticles";
+import UserEditAccountModal from "./Modals/UserEditAccount";
 import moment from "moment";
 import "./index.css";
 
@@ -45,7 +46,7 @@ class Profile extends Component {
                     <ul>
                       <li>View your personal information</li>
                       <li>See your saved articles</li>
-                      <li>Add/update/delete article notes</li>
+                      <li>Add, update, and delete article notes</li>
                     </ul>
                   </div>
                 </div>
@@ -54,7 +55,7 @@ class Profile extends Component {
             <div className="col-md-6">
               <div className="card bg-light mb-3 card-height">
                 <div className="card-body">
-                  <h4 className="card-title">Personal Information</h4>
+                  <span className="card-title h4">Personal Information</span><small className="float-right user-edit-account" data-toggle="modal" data-target="#user-edit-account"><i className="fa fa-pencil" aria-hidden="true"></i> Edit</small>
                   <table>
                     <tbody>
                       <tr>
@@ -94,24 +95,13 @@ class Profile extends Component {
                     <p>These are all the articles that you've saved. Want to save more? <Link to="/">Click here.</Link></p>
                   </div>
                   <SavedArticles savedArticles={this.state.savedArticles}/>
-
-                  {/* <table className="table table-hover table-sm">
-                    <thead>
-                      <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Date saved</th>
-                        <th scope="col">Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table> */}
                 </div>
               </div>
             </div>
           </div>
 
         </div>
+        <UserEditAccountModal />
       </React.Fragment>
     );
   }

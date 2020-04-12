@@ -2,3 +2,7 @@
   height: 200px;
   /* min-height: 250px; */
 }
+
+.user-edit-account:hover {
+  cursor: pointer;
+}
