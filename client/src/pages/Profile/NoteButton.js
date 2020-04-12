@@ -3,7 +3,7 @@ import "./index.css";
 
 const NoteButton = (props) => (
 
-  <span className="btn btn-primary float-right note-button" data-toggle="modal" data-target="#article-notes">Notes</span>
+  <span className="btn btn-primary float-right note-button" data-toggle="modal" data-target={"#article-notes-"+props.id} >Notes</span>
 
 )
 

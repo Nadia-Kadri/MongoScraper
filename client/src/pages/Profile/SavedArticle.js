@@ -13,7 +13,7 @@ const SavedArticle = (props) => (
         </div>
         <div className="col-5">
           <DeleteButton deleteSavedArticle={props.deleteSavedArticle} getSavedArticles={props.getSavedArticles} id={props.id}/>
-          <NoteButton />
+          <NoteButton id={props.id} />
         </div>
       </div>
     </div>

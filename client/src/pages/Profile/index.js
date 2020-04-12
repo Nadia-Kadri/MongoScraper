@@ -7,7 +7,6 @@ import ArticleNotesModal from "./Modals/ArticleNotes";
 import DeleteSavedArticleModal from "./Modals/DeleteSavedArticle";
 import moment from "moment";
 import "./index.css";
-import DeleteSavedArticle from "./Modals/DeleteSavedArticle";
 
 class Profile extends Component {
   state = {
@@ -105,7 +104,11 @@ class Profile extends Component {
                   <div className="card-text">
                     <p>These are all the articles that you've saved. Want to save more? <Link to="/">Click here.</Link></p>
                   </div>
-                  <SavedArticles savedArticles={this.state.savedArticles} deleteSavedArticle={this.deleteSavedArticle} getSavedArticles={this.getSavedArticles}/>
+                  <SavedArticles 
+                    savedArticles={this.state.savedArticles} 
+                    deleteSavedArticle={this.deleteSavedArticle} 
+                    getSavedArticles={this.getSavedArticles}
+                  />
                 </div>
               </div>
             </div>
@@ -113,8 +116,19 @@ class Profile extends Component {
 
         </div>
         <UserEditAccountModal />
-        <ArticleNotesModal />
-        <DeleteSavedArticleModal getSavedArticles={this.getSavedArticles} />
+        <DeleteSavedArticleModal 
+          getSavedArticles={this.getSavedArticles} 
+        />
+        {this.state.savedArticles.map(article => (
+          <ArticleNotesModal 
+            id={article._id}
+            title={article.title}
+            link={article.link}
+            notes={article.notes}
+            key={article._id}
+          />
+        ))}
+        
       </React.Fragment>
     );
   }
