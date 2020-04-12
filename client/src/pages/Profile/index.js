@@ -105,7 +105,7 @@ class Profile extends Component {
                   <div className="card-text">
                     <p>These are all the articles that you've saved. Want to save more? <Link to="/">Click here.</Link></p>
                   </div>
-                  <SavedArticles savedArticles={this.state.savedArticles} deleteSavedArticle={this.deleteSavedArticle}/>
+                  <SavedArticles savedArticles={this.state.savedArticles} deleteSavedArticle={this.deleteSavedArticle} getSavedArticles={this.getSavedArticles}/>
                 </div>
               </div>
             </div>

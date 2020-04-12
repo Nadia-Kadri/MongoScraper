@@ -3,7 +3,15 @@ import "./index.css";
 
 const DeleteButton = (props) => (
 
-  <span className="btn btn-danger float-right ml-2 delete-button" data-toggle="modal" data-target="#delete-saved-article" onClick={() => props.deleteSavedArticle(props.id)}>Delete</span>
+  <span 
+    className="btn btn-danger float-right ml-2 delete-button"  
+    data-toggle="modal" 
+    data-target="#delete-saved-article" 
+    onClick={() => {
+      props.deleteSavedArticle(props.id)
+      props.getSavedArticles()
+    }}
+  >Delete</span>
 
 )
 

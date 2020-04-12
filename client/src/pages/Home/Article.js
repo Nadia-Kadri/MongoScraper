@@ -9,7 +9,7 @@ const Article = (props) => (
           <span className="h4"><a target="_blank" rel="noopener noreferrer" href={props.link}>{props.title}</a></span>
         </div>
         <div className="col-4">
-          <SaveButton id={props.id} saveArticle={props.saveArticle}/>
+          <SaveButton id={props.id} saveArticle={props.saveArticle} />
         </div>
       </div>
     </div>

@@ -116,7 +116,7 @@ class Home extends Component {
                 </div>
               </div>  
             </div>
-            <Articles articles={this.state.articles} user={this.props.user} saveArticle={this.saveArticle}/>
+            <Articles articles={this.state.articles} user={this.props.user} saveArticle={this.saveArticle} />
           </React.Fragment>)
         }
       
