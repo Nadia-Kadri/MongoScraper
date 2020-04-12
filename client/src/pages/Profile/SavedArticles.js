@@ -6,7 +6,7 @@ import SavedArticle from "./SavedArticle";
 const SavedArticles = (props) => (
 
   props.savedArticles.map(article => (
-    <SavedArticle id={article._id} link={article.link} title={article.title} summary={article.summary} notes={article.notes} key={article._id}/>
+    <SavedArticle id={article._id} link={article.link} title={article.title} summary={article.summary} notes={article.notes} key={article._id} deleteSavedArticle={props.deleteSavedArticle}/>
   ))
   
 )

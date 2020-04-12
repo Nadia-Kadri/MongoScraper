@@ -1,5 +1,6 @@
 import React from "react";
-// import SaveButton from "./SaveButton";
+import NoteButton from "./NoteButton";
+import DeleteButton from "./DeleteButton";
 import "./index.css";
 
 const SavedArticle = (props) => (
@@ -7,11 +8,12 @@ const SavedArticle = (props) => (
   <div className="card mt-2">
     <div className="card-header">
       <div className="row">
-        <div className="col-8">
+        <div className="col-7">
           <span><a target="_blank" rel="noopener noreferrer" href={props.link}>{props.title}</a></span>
         </div>
-        <div className="col-4">
-          {/* <SaveButton id={props.id} saveArticle={props.saveArticle}/> */}
+        <div className="col-5">
+          <DeleteButton deleteSavedArticle={props.deleteSavedArticle} id={props.id}/>
+          <NoteButton />
         </div>
       </div>
     </div>

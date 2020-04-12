@@ -19,6 +19,9 @@ export default {
   saveArticle: function (articleId) {
     return axios.put("/api/user/save/article/" + articleId)
   },
+  deleteArticle: function (articleId) {
+    return axios.put("/api/user/delete/article/" + articleId)
+  },
   viewSavedArticles: function () {
     return axios.get("/api/user/view/articles");
   },

@@ -78,6 +78,16 @@ router.put("/save/article/:articleId", isAuthenticated, function(req, res) {
     .catch(err => console.log(err.message));
 });
 
+// Put route for users to delete a saved article
+router.put("/delete/article/:articleId", isAuthenticated, function(req, res) {
+  db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { savedArticles: req.params.articleId } }, { new: true })
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(err => console.log(err.message));
+});
+
 // Get route for Users to view their saved articles
 router.get("/view/articles", isAuthenticated, function(req, res) {
   console.log("saved articles");

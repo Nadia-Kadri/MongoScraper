@@ -7,7 +7,7 @@ const ScrapeSuccess = (props) => (
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLongTitle">Success!</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={props.getArticles}>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => props.getArticles()}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -15,7 +15,7 @@ const ScrapeSuccess = (props) => (
             The latest articles have been scraped from the Wall Street Journal. Click below to view!
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.getArticles}>View Articles</button>
+            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => props.getArticles()}>View Articles</button>
           </div>
         </div>
       </div>

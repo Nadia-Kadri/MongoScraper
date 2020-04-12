@@ -6,3 +6,10 @@
 .user-edit-account:hover {
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .note-button, .delete-button {
+    font-size: small;
+    padding: 2px;
+  }
+}

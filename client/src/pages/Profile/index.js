@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import userAPI from "../../utils/userAPI";
 import SavedArticles from "./SavedArticles";
 import UserEditAccountModal from "./Modals/UserEditAccount";
+import ArticleNotesModal from "./Modals/ArticleNotes";
+import DeleteSavedArticleModal from "./Modals/DeleteSavedArticle";
 import moment from "moment";
 import "./index.css";
+import DeleteSavedArticle from "./Modals/DeleteSavedArticle";
 
 class Profile extends Component {
   state = {
@@ -15,7 +18,7 @@ class Profile extends Component {
     this.getSavedArticles()
   }
 
-  getSavedArticles () {
+  getSavedArticles = () => {
     userAPI.viewSavedArticles()
       .then(res => {
         console.log(res.data[0].savedArticles)
@@ -24,6 +27,14 @@ class Profile extends Component {
       .catch(err => {
         console.log(err)
       });
+  }
+
+  deleteSavedArticle (articleId) {
+    userAPI.deleteArticle(articleId)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => console.log(err))
   }
 
   render() {
@@ -94,7 +105,7 @@ class Profile extends Component {
                   <div className="card-text">
                     <p>These are all the articles that you've saved. Want to save more? <Link to="/">Click here.</Link></p>
                   </div>
-                  <SavedArticles savedArticles={this.state.savedArticles}/>
+                  <SavedArticles savedArticles={this.state.savedArticles} deleteSavedArticle={this.deleteSavedArticle}/>
                 </div>
               </div>
             </div>
@@ -102,6 +113,8 @@ class Profile extends Component {
 
         </div>
         <UserEditAccountModal />
+        <ArticleNotesModal />
+        <DeleteSavedArticleModal getSavedArticles={this.getSavedArticles} />
       </React.Fragment>
     );
   }
