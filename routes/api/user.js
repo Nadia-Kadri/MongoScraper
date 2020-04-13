@@ -113,16 +113,5 @@ router.get("/view/notes/:articleId", isAuthenticated, function(req, res) {
     .catch(err => console.log(err.message));
 });
 
-router.get("/view/notes/:userId/:articleId", function(req, res) {
-  console.log("saved notes");
-  
-  db.Note.find({ user: req.params.userId , article: req.params.articleId })
-    .then(result => {
-      console.log(result)
-      res.json(result)
-    })
-    .catch(err => console.log(err.message));
-});
-
 
 module.exports = router;
