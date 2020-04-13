@@ -94,7 +94,29 @@ router.get("/view/articles", isAuthenticated, function(req, res) {
   
   db.User.find({ _id: req.user._id })
     .populate("savedArticles")
-    .populate("notes")
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(err => console.log(err.message));
+});
+
+// Get route for Users to view their notes by article
+router.get("/view/notes/:articleId", isAuthenticated, function(req, res) {
+  console.log("saved notes");
+  
+  db.Note.find({ user: req.user._id , article: req.params.articleId })
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(err => console.log(err.message));
+});
+
+router.get("/view/notes/:userId/:articleId", function(req, res) {
+  console.log("saved notes");
+  
+  db.Note.find({ user: req.params.userId , article: req.params.articleId })
     .then(result => {
       console.log(result)
       res.json(result)

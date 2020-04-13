@@ -14,19 +14,27 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    this.getSavedArticles()
+    this.getSavedArticles();
+    // this.getNotes();
   }
 
   getSavedArticles = () => {
     userAPI.viewSavedArticles()
       .then(res => {
-        console.log(res.data[0].savedArticles)
+        // console.log(res.data[0])
         this.setState({ savedArticles: res.data[0].savedArticles })
       })
       .catch(err => {
         console.log(err)
       });
   }
+
+  // getNotes = () => {
+  //   userAPI.viewNotes()
+  //     .then(res => {
+  //       console.log(res.data[0])
+  //     })
+  // }
 
   deleteSavedArticle (articleId) {
     userAPI.deleteArticle(articleId)

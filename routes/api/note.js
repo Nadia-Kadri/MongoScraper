@@ -13,6 +13,15 @@ router.post("/create", function(req, res) {
    })
   .then(result => {
     console.log("note created")
+
+    db.User.findOneAndUpdate({ _id: result.user }, { $addToSet: { notes: result._id } }, { new: true })
+      .then(() => console.log("Note pushed to User"))
+      .catch(err => console.log(err.message))
+
+    db.Article.findOneAndUpdate({ _id: result.article }, { $addToSet: { notes: result._id } }, { new: true })
+      .then(() => console.log("Note pushed to Article"))
+      .catch(err => console.log(err.message))
+
     res.send(result)
   })
   .catch(err => console.log(err.message));
