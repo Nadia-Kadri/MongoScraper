@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import logo from "../images/logo.jpeg"
+import logo from "../images/logo.svg"
 import "./index.css";
 
 const Navbar = (props) => (
   <React.Fragment>
     <nav className="navbar navbar-expand-md navbar-light bg-light cust-nav">
 
-      {/* <Link to="/"  className="navbar-brand">
-        <img src={logo} alt="Mongo Scraper" width="10%" height="10%" />
-      </Link> */}
-
-      <Link to="/" className="nav-link">
-        <h1>Mongo Scraper</h1>
+      <Link to="/"  className="navbar-brand mt-2">
+        <img src={logo} style={{ background: "none" }} alt="Mongo Scraper" width="15%" height="" />
+        <span className="h1 ml-3 text-primary">Mongo Scraper</span>
       </Link>
+
+      {/* <Link to="/" className="nav-link">
+        <h1>Mongo Scraper</h1>
+      </Link> */}
 
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

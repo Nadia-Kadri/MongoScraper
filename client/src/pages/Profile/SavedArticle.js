@@ -12,8 +12,14 @@ const SavedArticle = (props) => (
           <span><a target="_blank" rel="noopener noreferrer" href={props.link}>{props.title}</a></span>
         </div>
         <div className="col-5">
-          <DeleteButton deleteSavedArticle={props.deleteSavedArticle} getSavedArticles={props.getSavedArticles} id={props.id}/>
-          <NoteButton id={props.id} />
+          <DeleteButton 
+            deleteSavedArticle={props.deleteSavedArticle} 
+            getSavedArticles={props.getSavedArticles} 
+            id={props.id}
+          />
+          <NoteButton 
+            id={props.id} 
+          />
         </div>
       </div>
     </div>
