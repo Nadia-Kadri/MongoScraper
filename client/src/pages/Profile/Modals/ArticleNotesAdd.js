@@ -21,7 +21,7 @@ class ArticleNotesAdd extends Component {
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value.trim()
+      [name]: value
     });
   };
 
@@ -45,6 +45,7 @@ class ArticleNotesAdd extends Component {
               this.state.body ? "" : "disabled"
             }
             onClick={this.addNote}
+            data-dismiss="modal"
           >Add</button>
         </form>
 

@@ -7,9 +7,9 @@ const Navbar = (props) => (
   <React.Fragment>
     <nav className="navbar navbar-expand-md navbar-light bg-light cust-nav">
 
-      <Link to="/"  className="navbar-brand mt-2">
+      <Link to="/"  className="navbar-brand">
         <img src={logo} style={{ background: "none" }} alt="Mongo Scraper" width="15%" height="" />
-        <span className="h1 ml-3 text-primary">Mongo Scraper</span>
+        <span className="h3 ml-3 cust-nav-brand">Mongo Scraper</span>
       </Link>
 
       {/* <Link to="/" className="nav-link">
