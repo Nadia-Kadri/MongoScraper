@@ -21,7 +21,6 @@ class Profile extends Component {
   getSavedArticles = () => {
     userAPI.viewSavedArticles()
       .then(res => {
-        console.log(res.data[0].savedArticles)
         this.setState({ savedArticles: res.data[0].savedArticles })
       })
       .catch(err => {
@@ -40,7 +39,6 @@ class Profile extends Component {
   getNotes = (articleId) => {
     userAPI.viewNotes(articleId)
       .then(res => {
-        console.log(res.data)
         this.setState({ notes: res.data })
       })
   }

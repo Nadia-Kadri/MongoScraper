@@ -1,60 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
+import ArticleNotesAdd from "./ArticleNotesAdd";
 
-class ArticleNotes extends Component {
-
-  // state = {
-  //   username: "",
-  //   password: "",
-  //   error: ""
-  // };
-
-  // addNote = event => {
-  //   event.preventDefault();
-  // }
-
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value.trim()
-  //   });
-  // };
-
-  render () {
-    return (
-      <React.Fragment>
-        <div className="modal fade" id={"article-notes-"+this.props.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLongTitle">{this.props.title}</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.props.getArticles}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <i className="fa fa-comment-o" aria-hidden="true"></i><span> Notes:</span>
-                {!this.props.notes.length ? 
-                  (<div>Looks like you haven't saved any notes for this article yet!</div>) 
-                :
-                  (<React.Fragment>
-                    <ul>
-                      {this.props.notes.map(note => <li key={note._id}>{note.body}</li>)}
-                    </ul>
-                  </React.Fragment>)
-                }
-                <i className="fa fa-commenting-o" aria-hidden="true"></i><span> Add Note:</span><br></br>
-                <textarea className='bodyinput' id="note${data[i]._id}" name='body'></textarea>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
+const ArticleNotes = (props) => (
+  <React.Fragment>
+    <div className="modal fade" id={"article-notes-"+props.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalLongTitle">{props.title}</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={props.getArticles}>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <i className="fa fa-comment-o" aria-hidden="true"></i><span> Notes: </span>
+            {!props.notes.length ? 
+              (<span>Looks like you haven't saved any notes for this article yet!</span>) 
+            :
+              (<React.Fragment>
+                <ul>
+                  {props.notes.map(note => <li key={note._id}>{note.body}</li>)}
+                </ul>
+              </React.Fragment>)
+            }
+            <ArticleNotesAdd />
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-      </React.Fragment>
-    )
-  }
-  
-};
+      </div>
+    </div>
+  </React.Fragment>
+);
 
 export default ArticleNotes;
