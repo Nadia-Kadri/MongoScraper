@@ -10,18 +10,18 @@ import "./index.css";
 
 class Profile extends Component {
   state = {
-    savedArticles: []
+    savedArticles: [],
+    notes: []
   };
 
   componentDidMount() {
     this.getSavedArticles();
-    // this.getNotes();
   }
 
   getSavedArticles = () => {
     userAPI.viewSavedArticles()
       .then(res => {
-        // console.log(res.data[0])
+        console.log(res.data[0].savedArticles)
         this.setState({ savedArticles: res.data[0].savedArticles })
       })
       .catch(err => {
@@ -29,19 +29,20 @@ class Profile extends Component {
       });
   }
 
-  // getNotes = () => {
-  //   userAPI.viewNotes()
-  //     .then(res => {
-  //       console.log(res.data[0])
-  //     })
-  // }
-
   deleteSavedArticle (articleId) {
     userAPI.deleteArticle(articleId)
     .then(res => {
       console.log(res)
     })
     .catch(err => console.log(err))
+  }
+
+  getNotes = (articleId) => {
+    userAPI.viewNotes(articleId)
+      .then(res => {
+        console.log(res.data)
+        this.setState({ notes: res.data })
+      })
   }
 
   render() {
@@ -116,6 +117,7 @@ class Profile extends Component {
                     savedArticles={this.state.savedArticles} 
                     deleteSavedArticle={this.deleteSavedArticle} 
                     getSavedArticles={this.getSavedArticles}
+                    getNotes={this.getNotes}
                   />
                 </div>
               </div>
@@ -132,7 +134,7 @@ class Profile extends Component {
             id={article._id}
             title={article.title}
             link={article.link}
-            notes={article.notes}
+            notes={this.state.notes}
             key={article._id}
           />
         ))}

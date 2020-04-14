@@ -19,6 +19,7 @@ const SavedArticle = (props) => (
           />
           <NoteButton 
             id={props.id} 
+            getNotes={props.getNotes}
           />
         </div>
       </div>

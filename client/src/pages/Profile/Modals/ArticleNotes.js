@@ -32,7 +32,16 @@ class ArticleNotes extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <i className="fa fa-comment-o" aria-hidden="true"></i><span> Notes:</span><br></br>
+                <i className="fa fa-comment-o" aria-hidden="true"></i><span> Notes:</span>
+                {!this.props.notes.length ? 
+                  (<div>Looks like you haven't saved any notes for this article yet!</div>) 
+                :
+                  (<React.Fragment>
+                    <ul>
+                      {this.props.notes.map(note => <li key={note._id}>{note.body}</li>)}
+                    </ul>
+                  </React.Fragment>)
+                }
                 <i className="fa fa-commenting-o" aria-hidden="true"></i><span> Add Note:</span><br></br>
                 <textarea className='bodyinput' id="note${data[i]._id}" name='body'></textarea>
               </div>

@@ -25,7 +25,7 @@ export default {
   viewSavedArticles: function () {
     return axios.get("/api/user/view/articles");
   },
-  viewNotes: function () {
-    return axios.get("/api/user/view/notes");
+  viewNotes: function (articleId) {
+    return axios.get("/api/user/view/notes/" + articleId);
   }
 };

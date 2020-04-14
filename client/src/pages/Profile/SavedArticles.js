@@ -14,7 +14,8 @@ const SavedArticles = (props) => (
       notes={article.notes} 
       key={article._id} 
       deleteSavedArticle={props.deleteSavedArticle} 
-      getSavedArticles={props.getSavedArticles}/>
+      getSavedArticles={props.getSavedArticles}
+      getNotes={props.getNotes}/>
   ))
   
 )

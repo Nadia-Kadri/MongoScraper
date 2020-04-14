@@ -113,5 +113,4 @@ router.get("/view/notes/:articleId", isAuthenticated, function(req, res) {
     .catch(err => console.log(err.message));
 });
 
-
 module.exports = router;
