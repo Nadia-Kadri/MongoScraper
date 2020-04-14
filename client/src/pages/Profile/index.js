@@ -39,6 +39,7 @@ class Profile extends Component {
   getNotes = (articleId) => {
     userAPI.viewNotes(articleId)
       .then(res => {
+        console.log(res.data)
         this.setState({ notes: res.data })
       })
   }
@@ -133,6 +134,7 @@ class Profile extends Component {
             title={article.title}
             link={article.link}
             notes={this.state.notes}
+            getNotes={this.getNotes}
             key={article._id}
           />
         ))}

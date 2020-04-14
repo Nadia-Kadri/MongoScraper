@@ -27,5 +27,8 @@ export default {
   },
   viewNotes: function (articleId) {
     return axios.get("/api/user/view/notes/" + articleId);
+  },
+  addNote: function (note) {
+    return axios.post("/api/user/add/note", note)
   }
 };

@@ -1,15 +1,21 @@
 import React, { Component } from "react";
+import userAPI from "../../../utils/userAPI";
 
 class ArticleNotesAdd extends Component {
 
   state = {
     body: "",
-    user: "",
-    article: ""
+    article: this.props.id
   };
 
   addNote = event => {
     event.preventDefault();
+    userAPI.addNote({
+      body: this.state.body,
+      article: this.state.article
+    })
+    .then(res => this.setState({ body: "" }))
+    .catch(err => console.log(err));
   }
 
   handleInputChange = event => {
@@ -38,6 +44,7 @@ class ArticleNotesAdd extends Component {
             disabled={
               this.state.body ? "" : "disabled"
             }
+            onClick={this.addNote}
           >Add</button>
         </form>
 

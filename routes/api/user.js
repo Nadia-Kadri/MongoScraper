@@ -113,4 +113,30 @@ router.get("/view/notes/:articleId", isAuthenticated, function(req, res) {
     .catch(err => console.log(err.message));
 });
 
+
+// Post route for adding a note
+router.post("/add/note", isAuthenticated, function(req, res) {
+  console.log("creating note");
+
+  db.Note.create({ 
+    body: req.body.body, 
+    article: req.body.article, 
+    user: req.user._id
+   })
+  .then(result => {
+    console.log("note created")
+
+    db.User.findOneAndUpdate({ _id: result.user }, { $addToSet: { notes: result._id } }, { new: true })
+      .then(() => console.log("Note pushed to User"))
+      .catch(err => console.log(err.message))
+
+    db.Article.findOneAndUpdate({ _id: result.article }, { $addToSet: { notes: result._id } }, { new: true })
+      .then(() => console.log("Note pushed to Article"))
+      .catch(err => console.log(err.message))
+
+    res.send(result)
+  })
+  .catch(err => console.log(err.message));
+});
+
 module.exports = router;
