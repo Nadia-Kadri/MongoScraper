@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.delete-note:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .note-button, .delete-button {
     font-size: small;

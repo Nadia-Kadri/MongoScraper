@@ -44,6 +44,13 @@ class Profile extends Component {
       })
   }
 
+  deleteNote = (noteId, articleId) => {
+    userAPI.deleteNote(noteId, articleId)
+      .then(res => {
+        console.log(res.data)
+      })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -135,6 +142,7 @@ class Profile extends Component {
             link={article.link}
             notes={this.state.notes}
             getNotes={this.getNotes}
+            deleteNote={this.deleteNote}
             key={article._id}
           />
         ))}

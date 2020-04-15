@@ -139,4 +139,24 @@ router.post("/add/note", isAuthenticated, function(req, res) {
   .catch(err => console.log(err.message));
 });
 
+// Delete route for users to delete a note
+router.delete("/delete/note/:noteId/:articleId", function(req, res) {
+  console.log("Deleting note");
+  db.Note.deleteOne({ _id: req.params.noteId })
+    .then(result => {
+      console.log("Note deleted")
+
+      db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { notes: req.params.noteId } }, { new: true })
+        .then(() => console.log("Note removed from User"))
+        .catch(err => console.log(err.message))
+
+      db.Article.findOneAndUpdate({ _id: req.params.articleId }, { $pull: { notes: req.params.noteId } }, { new: true })
+        .then(() => console.log("Note removed from Article"))
+        .catch(err => console.log(err.message))
+
+      res.json(result)
+    })
+    .catch(err => console.log(err.message));
+});
+
 module.exports = router;

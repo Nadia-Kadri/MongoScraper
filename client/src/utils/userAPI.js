@@ -30,5 +30,8 @@ export default {
   },
   addNote: function (note) {
     return axios.post("/api/user/add/note", note)
+  },
+  deleteNote: function (noteId, articleId) {
+    return axios.delete("/api/user/delete/note/" + noteId + "/" + articleId)
   }
 };

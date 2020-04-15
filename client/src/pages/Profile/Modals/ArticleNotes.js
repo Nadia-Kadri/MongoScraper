@@ -19,7 +19,13 @@ const ArticleNotes = (props) => (
             :
               (<React.Fragment>
                 <ul>
-                  {props.notes.map(note => <li key={note._id}>{note.body}</li>)}
+                  {props.notes.map(note => 
+                    <li key={note._id} className="mb-2" >{note.body}
+                      <small className="float-right delete-note" data-dismiss="modal">
+                        <i className="fa fa-trash-o float-right" aria-hidden="true" onClick={() => props.deleteNote(note._id, props.id)} > Delete</i>
+                      </small>
+                    </li>
+                  )}
                 </ul>
               </React.Fragment>)
             }
