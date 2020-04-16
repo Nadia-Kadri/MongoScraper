@@ -11,8 +11,8 @@ Access the live webapp: [MongoScraper]()
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Features](#features)
-- [Features for V2.0](#featuresforv2.0)
 - [About the Developer](#aboutthedeveloper)
+---
 ### Technologies
 | Backend | Frontend |
 | -------- | ------------------ |
@@ -25,6 +25,7 @@ Access the live webapp: [MongoScraper]()
 | Moment | jQuery 3.4.1 |
 | Passport | 
 | Nodemon | 
+---
 ### Installation
 #### Prerequisites
 You must have the following installed to run MongoScraper:
@@ -53,6 +54,24 @@ Run the app from the command line
 ```
 $ npm start
 ```
+---
+### Features
+Access the live webapp: [MongoScraper]()
+#### Scrape WSJ
+Click to scrape the latest articles from the WSJ
+#### Login/Sign Up
+Login / Sign-Up in order to save an article.
+<!-- ![Login/SignUp](https://media.giphy.com/media/LpiJu4eJ58FU3nhs9w/giphy.gif "Login / Sign Up") -->
+#### Save Article
+After sigining in user can select which articles they would like to save.
+<!-- ![Schedule Class](https://media.giphy.com/media/TEu9ggTRGAvW9t01LP/giphy.gif "Schedule Class") -->
+#### User Profile
+When user save an article they can go to their profile and view their profile information and view the articles they saved.
+<!-- ![User Profile](https://media.giphy.com/media/YnNdsXf5rwqWbpM7aV/giphy.gif "User Profile") -->
+#### Article Notes
+Users can create and delete notes on their saved articles.
+#### Delete Article
+Users can delete articles they no longer need.
 ---
 ### <a name="aboutthedeveloper"></a> About the Developer
 MongoScraper creator and designer:<br>
