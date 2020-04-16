@@ -41,8 +41,7 @@ Download Compass GUI from [MongoDB Compass](https://www.mongodb.com/products/com
 > Both Compass and Robo 3t allow you to view the data that is being persisted to your database locally. Gives you the ability to modify, insert, and delete data manually in the GUI.
 
 Clone or fork repository:
-``
-$ git clone git@github.com:Nadia-Kadri/MongoScraper.git
+  $ git clone git@github.com:Nadia-Kadri/MongoScraper.git
 Create environment inside your root directory:
 ```
 $ touch .env
