@@ -4,7 +4,7 @@ As fears around the coronavirus spread across the global economy, the U.S. stock
 
 MongoScraper is a full-stack ReactJS web application that uses NPM packages axios and cheerio to scrape the Wall Street Journal website, allowing users to view a summary of the latest WSJ articles with a link to read the article in full. After registering an account, users can save articles to their profile page that they can access at anytime. Users can then manage their articles in a variety of ways - by adding or deleting any notes to specific articles as well as deleting any articles they no longer need. MongoScraper utilizes an express server and a MongoDB Database.
 
-Access the live webapp: [MongoScraper]()
+Access the live webapp: [MongoScraper](https://mongo-scraper-wsj.herokuapp.com/)
 
 <!-- ![Homepage](https://media.giphy.com/media/Sw00jEgoSKOuwcRjrb/giphy.gif "Homepage") -->
 ## Contents
@@ -64,7 +64,7 @@ $ npm start
 ---
 
 ### Features
-Access the live webapp: [MongoScraper]()
+Access the live webapp: [MongoScraper](https://mongo-scraper-wsj.herokuapp.com/)
 #### Scrape WSJ
 Click to scrape the latest articles from the WSJ
 #### Login/Sign Up
