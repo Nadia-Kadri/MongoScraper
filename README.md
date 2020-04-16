@@ -12,7 +12,7 @@ Access the live webapp: [MongoScraper]()
 - [Installation](#installation)
 - [Features](#features)
 - [Features for V2.0](#featuresforv2.0)
-- [About the Developers](#aboutthedeveloper)
+- [About the Developer](#aboutthedeveloper)
 ### Technologies
 | Backend | Frontend |
 | -------- | ------------------ |
@@ -25,7 +25,7 @@ Access the live webapp: [MongoScraper]()
 | Moment | jQuery 3.4.1 |
 | Passport | 
 | Nodemon | 
-### <a name="aboutthedeveloper"></a> About the Developers
-MongoScraper creator and designer:
+### <a name="aboutthedeveloper"></a> About the Developer
+MongoScraper creator and designer:<br>
 [<img src="https://media-exp1.licdn.com/dms/image/C4D03AQH9bImUzEztVQ/profile-displayphoto-shrink_200_200/0?e=1590624000&v=beta&t=8Q89ixVklNYqqmnkjXeBlcBBSphqYJct9FD0dVa22Jw" height="70px" width="70px">](https://github.com/Nadia-Kadri)<br>
 [Nadia Kadri](https://github.com/Nadia-Kadri) is a Financial Analyst at Lockheed Martin pursuing a career in software engineering. She can be found on [LinkedIn](https://www.linkedin.com/in/nadia-kadri-334415b3/) and [Github](https://github.com/Nadia-Kadri).<br>
