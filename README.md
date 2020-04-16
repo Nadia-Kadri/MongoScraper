@@ -42,6 +42,7 @@ Download Compass GUI from [MongoDB Compass](https://www.mongodb.com/products/com
 
 Clone or fork repository: <br>
     $ git clone git@github.com:Nadia-Kadri/MongoScraper.git
+    <br>
 Create environment inside your root directory:
 ```
 $ touch .env
