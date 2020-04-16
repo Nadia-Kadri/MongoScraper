@@ -6,13 +6,15 @@ MongoScraper is a full-stack ReactJS web application that uses NPM packages axio
 
 Access the live webapp: [MongoScraper]()
 
-![Homepage](https://media.giphy.com/media/Sw00jEgoSKOuwcRjrb/giphy.gif "Homepage")
+<!-- ![Homepage](https://media.giphy.com/media/Sw00jEgoSKOuwcRjrb/giphy.gif "Homepage") -->
 ## Contents
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Features](#features)
 - [About the Developer](#aboutthedeveloper)
+
 ---
+
 ### Technologies
 | Backend | Frontend |
 | -------- | ------------------ |
@@ -25,7 +27,9 @@ Access the live webapp: [MongoScraper]()
 | Moment | jQuery 3.4.1 |
 | Passport | 
 | Nodemon | 
+
 ---
+
 ### Installation
 #### Prerequisites
 You must have the following installed to run MongoScraper:
@@ -37,6 +41,7 @@ Download Compass GUI from [MongoDB Compass](https://www.mongodb.com/products/com
 > Both Compass and Robo 3t allow you to view the data that is being persisted to your database locally. Gives you the ability to modify, insert, and delete data manually in the GUI.
 
 Clone or fork repository:
+``
 $ git clone git@github.com:Nadia-Kadri/MongoScraper.git
 Create environment inside your root directory:
 ```
@@ -55,7 +60,9 @@ Run the app from the command line
 ```
 $ npm start
 ```
+
 ---
+
 ### Features
 Access the live webapp: [MongoScraper]()
 #### Scrape WSJ
@@ -73,7 +80,9 @@ When user save an article they can go to their profile and view their profile in
 Users can create and delete notes on their saved articles.
 #### Delete Article
 Users can delete articles they no longer need.
+
 ---
+
 ### <a name="aboutthedeveloper"></a> About the Developer
 MongoScraper creator and designer:<br>
 [<img src="https://media-exp1.licdn.com/dms/image/C4D03AQH9bImUzEztVQ/profile-displayphoto-shrink_200_200/0?e=1590624000&v=beta&t=8Q89ixVklNYqqmnkjXeBlcBBSphqYJct9FD0dVa22Jw" height="70px" width="70px">](https://github.com/Nadia-Kadri)<br>
