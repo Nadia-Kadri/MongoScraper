@@ -35,6 +35,7 @@ You must have the following installed to run MongoScraper:
 #### Run MongoScraper on your local computer
 Download Compass GUI from [MongoDB Compass](https://www.mongodb.com/products/compass) or the Robo3t GUI from [Robomongo](https://robomongo.org/)
 > Both Compass and Robo 3t allow you to view the data that is being persisted to your database locally. Gives you the ability to modify, insert, and delete data manually in the GUI.
+
 Clone or fork repository:
 $ git clone git@github.com:Nadia-Kadri/MongoScraper.git
 Create environment inside your root directory:
