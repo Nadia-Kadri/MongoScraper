@@ -6,7 +6,7 @@ MongoScraper is a full-stack ReactJS web application that uses NPM packages axio
 
 Access the live webapp: [MongoScraper](https://mongo-scraper-wsj.herokuapp.com/)
 
-![Homepage](./mongoscraper.jpg)
+![Homepage](./mongoscraper.png)
 ## Contents
 - [Technologies](#technologies)
 - [Installation](#installation)
