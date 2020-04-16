@@ -25,7 +25,7 @@ const options = {
   useNewUrlParser: true,
   useFindAndModify: false
 };
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/MongoScraper", options); 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://mongoscraper:mongoscraper1@ds021289.mlab.com:21289/heroku_swr9bhk7", options); 
 
 // ROUTES
 app.use(routes);
