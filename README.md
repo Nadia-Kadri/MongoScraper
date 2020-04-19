@@ -63,11 +63,13 @@ $ npm start
 
 ---
 
+<!-- https://github.com/dahliakadri/movies_by_destination/blob/master/static/img/moodymoviebymap.gif -->
+
 ### Features
 Access the live webapp: [MongoScraper](https://mongo-scraper-wsj.herokuapp.com/)
 #### Scrape WSJ
 Click to scrape the latest articles from the WSJ
-[ScrapeWSJ](./readme/scrape-wsj.gif "Scrape WSJ")
+![ScrapeWSJ](./readme/scrape-wsj.gif "Scrape WSJ")
 #### Login/Sign Up
 Login / Sign-Up in order to save an article.
 <!-- ![Login/SignUp](https://media.giphy.com/media/LpiJu4eJ58FU3nhs9w/giphy.gif "Login / Sign Up") -->
