@@ -70,19 +70,19 @@ Access the live webapp: [MongoScraper](https://mongo-scraper-wsj.herokuapp.com/)
 Click to scrape the latest articles from the WSJ
 ![ScrapeWSJ](./readme/scrape-wsj.gif "Scrape WSJ")
 #### Login/Sign Up
-Login / Sign-Up in order to save an article.
+Login / Sign-Up in order to save an article
 ![LoginSignUp](./readme/login-signup.gif "Login / Sign Up")
 #### Save Article
-After sigining in user can select which articles they would like to save.
+After sigining in users can select the articles they would like to save
 ![SaveArticle](./readme/save-article.gif "Save Article")
 #### User Profile
-When user save an article they can go to their profile and view their profile information and view the articles they saved.
+When users save an article they can go to their profile and view their profile information and view the articles they saved
 ![UserProfile](./readme/user-profile.gif "User Profile")
 #### Article Notes
-Users can create and delete notes on their saved articles.
+Users can create and delete notes on their saved articles
 ![ArticleNotes](./readme/article-notes.gif "Article Notes")
 #### Delete Article
-Users can delete articles they no longer need.
+Users can delete articles they no longer need
 ![DeleteArticle](./readme/delete-article.gif "Delete Article")
 
 ---
