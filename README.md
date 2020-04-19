@@ -73,14 +73,16 @@ Login / Sign-Up in order to save an article.
 ![LoginSignUp](./readme/login-signup.gif "Login / Sign Up")
 #### Save Article
 After sigining in user can select which articles they would like to save.
-<!-- ![Schedule Class](https://media.giphy.com/media/TEu9ggTRGAvW9t01LP/giphy.gif "Schedule Class") -->
+![SaveArticle](./readme/save-article.gif "Save Article")
 #### User Profile
 When user save an article they can go to their profile and view their profile information and view the articles they saved.
-<!-- ![User Profile](https://media.giphy.com/media/YnNdsXf5rwqWbpM7aV/giphy.gif "User Profile") -->
+![UserProfile](./readme/user-profile.gif "User Profile")
 #### Article Notes
 Users can create and delete notes on their saved articles.
+![ArticleNotes](./readme/article-notes.gif "Article Notes")
 #### Delete Article
 Users can delete articles they no longer need.
+![DeleteArticle](./readme/delete-article.gif "Delete Article")
 
 ---
 
